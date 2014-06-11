@@ -1,0 +1,12 @@
+tmp
+node_modules
+bower_components
+lib
+public
+dist
+build
+secrets
+
+npm-debug.log
+s3.json
+LICENSE.js

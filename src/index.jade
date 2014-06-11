@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset="utf-8")
+  meta(
+    name="viewport"
+    content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+  )
+
+  title Jesse the Dashboard
+
+  <!-- inject:html -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+body(ng-app="jtg.beacon")
+  h1 Dashboard
+
+  widget(ng-controller="LocationCtrl")
+    h2 Location Tracker
+    input(ng-model="feed.coords" type="text")
+    button(ng-click="feed.broadcast()") Send
+    button(ng-if="feed.running" ng-click="feed.stop()") Stop
+    button(ng-if="!feed.running" ng-click="feed.start()") Start
+
+  form(
+    ng-controller="BroadcastCtrl"
+    ng-submit="broadcast(message); message=''"
+  )
+    h2 Broadcast
+    input(ng-model="message" type="text")
+    input(type="submit" value="Send")
+
+  script(src="http://pewpew.nl:5000/socket.io/socket.io.js")
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:templates.js -->
+  <!-- endinject -->
