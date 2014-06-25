@@ -19,5 +19,3 @@ angular.module 'jtg.beacon', [
 
   socket.on 'connect', ->
     socket.emit 'init', 'beacon'
-    socket.emit 'broadcast', 'BC'
-    socket.emit 'location', 'LOC'
